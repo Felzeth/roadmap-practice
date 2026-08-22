@@ -9,9 +9,10 @@ Each project is a standalone challenge completed as part of my learning journey 
 | # | Project | Roadmap.sh Challenge | Status |
 |---|---------|----------------------|--------|
 | 1 | [Password Rule Checker](./password-rule-checker) | [JS Password Rule Checker](https://roadmap.sh/projects/js-password-rule-checker) | ✅ Done |
-| 2 | [Task Tracker](./task-tracker) | [Task Tracker](https://roadmap.sh/projects/task-tracker) | ✅ Done |
+| 2 | [Task Tracker (CLI)](./task-tracker) | [Task Tracker](https://roadmap.sh/projects/task-tracker) | ✅ Done |
 | 3 | [Single-Page CV](./single-page-cv) | [Single-Page CV](https://roadmap.sh/projects/single-page-cv) | ✅ Done |
 | 4 | [Basic HTML Website](./basic-html-website) | [Basic HTML Website](https://roadmap.sh/projects/basic-html-website) | ✅ Done |
+| 5 | [Task Tracker (Web)](./task-tracker-web) | [Task Tracker](https://roadmap.sh/projects/task-tracker-web) | ✅ Done |
 
 > New projects will be added as I work through the roadmap.
 

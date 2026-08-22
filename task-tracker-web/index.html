@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Tracker</title>
+  <meta name="description" content="A simple task tracker to add, complete, and delete tasks.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="card">
+    <h1>Task Tracker</h1>
+
+    <form id="taskForm">
+      <input
+        type="text"
+        id="taskInput"
+        placeholder="Start writing and press enter to create task"
+        autocomplete="off"
+      >
+      <button type="submit" aria-label="Add task">&#9166;</button>
+    </form>
+
+    <ul id="taskList"></ul>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
