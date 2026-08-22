@@ -1,40 +1,30 @@
-# Password Rule Checker
+# Roadmap.sh Projects
 
-A real-time password strength checker built with vanilla HTML, CSS, and JavaScript. Part of my learning practice from [roadmap.sh](https://roadmap.sh).
+Practice projects from [roadmap.sh](https://roadmap.sh) — building real things to learn real skills.
 
-## Project Page
+Each project is a standalone challenge completed as part of my learning journey through the [Frontend Developer Roadmap](https://roadmap.sh/frontend).
 
-This project is based on the [JS Password Rule Checker](https://roadmap.sh/projects/js-password-rule-checker) challenge from roadmap.sh.
+## Projects
+
+| #   | Project                                          | Description                                                   | Status  |
+| --- | ------------------------------------------------ | ------------------------------------------------------------- | ------- |
+| 1   | [Password Rule Checker](./password-rule-checker) | Real-time password strength validator with live rule feedback | ✅ Done |
+| 2   | [Task Tracker](./task-tracker)                   | CLI app to track and manage tasks with status filtering       | ✅ Done |
+
+> New projects will be added as I work through the roadmap.
 
 ## How to Run
 
+Each project is self-contained. Check the README inside each folder for specific instructions.
+
 ```bash
-git clone https://github.com/Felzeth/roadmap-practice.git
-cd roadmap-practice/password-rule-checker
-open index.html
-```
-
-## Features
-
-- Live password validation as you type
-- 3 security rules: minimum length (8 chars), numbers, uppercase letters
-- Animated strength bar and visual rule feedback
-- Password visibility toggle
-- Dark glassmorphism UI
-
-## Project Structure
-
-```
-├── README.md
-└── password-rule-checker/
-    ├── index.html
-    ├── styles.css
-    ├── app.js
-    └── passwordValidator.js
+git clone https://github.com/felzeth/roadmap-practice.git
+cd roadmap-practice
 ```
 
 ## Tech Stack
 
 - HTML5
-- CSS3 (glassmorphism, animations)
+- CSS3
 - Vanilla JavaScript
+- Node.js
