@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Dropdown</title>
+  <meta name="description" content="A custom dropdown menu built with HTML, CSS, and JavaScript.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main>
+    <h1>Custom Dropdown</h1>
+
+    <div class="dropdown" id="dropdown">
+      <button class="dropdown-trigger" id="dropdownTrigger" aria-haspopup="listbox" aria-expanded="false">
+        <span class="dropdown-value" id="dropdownValue">Select an Item</span>
+        <span class="dropdown-arrow" id="dropdownArrow">&#9662;</span>
+      </button>
+      <ul class="dropdown-menu" id="dropdownMenu" role="listbox">
+        <li class="dropdown-item" role="option" data-value="First Item">First Item</li>
+        <li class="dropdown-item" role="option" data-value="Second Item">Second Item</li>
+        <li class="dropdown-item" role="option" data-value="Third Item">Third Item</li>
+        <li class="dropdown-item" role="option" data-value="Fourth Item">Fourth Item</li>
+        <li class="dropdown-item" role="option" data-value="Fifth Item">Fifth Item</li>
+      </ul>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
