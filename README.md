@@ -9,8 +9,8 @@ This project is based on the [JS Password Rule Checker](https://roadmap.sh/proje
 ## How to Run
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/roadmap-projects.git
-cd roadmap-projects/password-rule-checker
+git clone https://github.com/Felzeth/roadmap-practice.git
+cd roadmap-practice/password-rule-checker
 open index.html
 ```
 
