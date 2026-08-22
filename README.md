@@ -14,6 +14,7 @@ Each project is a standalone challenge completed as part of my learning journey 
 | 4 | [Basic HTML Website](./basic-html-website) | [Basic HTML Website](https://roadmap.sh/projects/basic-html-website) | ✅ Done |
 | 5 | [Task Tracker (Web)](./task-tracker-web) | [Task Tracker](https://roadmap.sh/projects/task-tracker-web) | ✅ Done |
 | 6 | [Custom Dropdown](./custom-dropdown) | [Custom Dropdown](https://roadmap.sh/projects/custom-dropdown) | ✅ Done |
+| 7 | [Theme Switcher](./theme-switcher) | [Theme Switcher](https://roadmap.sh/projects/theme-switcher) | ✅ Done |
 
 > New projects will be added as I work through the roadmap.
 

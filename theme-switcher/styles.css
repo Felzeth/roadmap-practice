@@ -1,0 +1,156 @@
+/* ── Reset ─────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Default Tokens (Light) ───────────────────── */
+
+:root {
+  --color-bg: #f0f0f0;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-muted: #6b6b6b;
+  --color-accent: #2563eb;
+  --color-accent-text: #ffffff;
+  --color-border: #d4d4d4;
+  --radius-md: 12px;
+}
+
+/* ── Hidden Radio Inputs ──────────────────────── */
+
+.theme-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Layout ───────────────────────────────────── */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 360px;
+}
+
+/* ── Switcher ─────────────────────────────────── */
+
+.switcher {
+  display: flex;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 24px;
+  background: var(--color-surface);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.switcher-label {
+  flex: 1;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: background 0.2s, color 0.2s;
+  user-select: none;
+}
+
+.switcher-label:hover {
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+}
+
+/* ── Card ─────────────────────────────────────── */
+
+.card {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.card h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  transition: color 0.3s;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* ═══════════════════════════════════════════════
+   THEME: DARK
+   ═══════════════════════════════════════════════ */
+
+body:has(#theme-dark:checked) {
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-text: #f1f5f9;
+  --color-text-muted: #94a3b8;
+  --color-accent: #3b82f6;
+  --color-accent-text: #ffffff;
+  --color-border: #334155;
+}
+
+/* ═══════════════════════════════════════════════
+   THEME: CUSTOM (Green / Cream)
+   ═══════════════════════════════════════════════ */
+
+body:has(#theme-custom:checked) {
+  --color-bg: #fefce8;
+  --color-surface: #fef9c3;
+  --color-text: #1a1a1a;
+  --color-text-muted: #5a5a3a;
+  --color-accent: #16a34a;
+  --color-accent-text: #ffffff;
+  --color-border: #d4d4a0;
+}
+
+/* ── Active Switcher Label ────────────────────── */
+
+body:has(#theme-light:checked) .switcher-label[data-theme="light"],
+body:has(#theme-dark:checked) .switcher-label[data-theme="dark"],
+body:has(#theme-custom:checked) .switcher-label[data-theme="custom"] {
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+}
