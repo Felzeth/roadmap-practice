@@ -1,20 +1,12 @@
-# Roadmap.sh Projects
+# Password Rule Checker
 
-Practice projects from [roadmap.sh](https://roadmap.sh) — building real things to learn real skills.
+A real-time password strength checker built with vanilla HTML, CSS, and JavaScript. Part of my learning practice from [roadmap.sh](https://roadmap.sh).
 
-Each project is a standalone front-end challenge completed as part of my learning journey through the [Frontend Developer Roadmap](https://roadmap.sh/frontend).
+## Project Page
 
-## Projects
-
-| # | Project | Description | Status |
-|---|---------|-------------|--------|
-| 1 | [Password Rule Checker](./password-rule-checker) | Real-time password strength validator with live rule feedback | ✅ Done |
-
-> New projects will be added as I work through the roadmap.
+This project is based on the [JS Password Rule Checker](https://roadmap.sh/projects/js-password-rule-checker) challenge from roadmap.sh.
 
 ## How to Run
-
-Each project is self-contained. Just open the `index.html` file in your browser.
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/roadmap-projects.git
@@ -22,8 +14,27 @@ cd roadmap-projects/password-rule-checker
 open index.html
 ```
 
+## Features
+
+- Live password validation as you type
+- 3 security rules: minimum length (8 chars), numbers, uppercase letters
+- Animated strength bar and visual rule feedback
+- Password visibility toggle
+- Dark glassmorphism UI
+
+## Project Structure
+
+```
+├── README.md
+└── password-rule-checker/
+    ├── index.html
+    ├── styles.css
+    ├── app.js
+    └── passwordValidator.js
+```
+
 ## Tech Stack
 
 - HTML5
-- CSS3
+- CSS3 (glassmorphism, animations)
 - Vanilla JavaScript
