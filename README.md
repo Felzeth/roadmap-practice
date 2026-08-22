@@ -19,8 +19,8 @@ Each project is a standalone challenge completed as part of my learning journey 
 Each project is self-contained. Check the README inside each folder for specific instructions.
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/roadmap-projects.git
-cd roadmap-projects
+git clone https://github.com/Felzeth/roadmap-practice.git
+cd roadmap-practice
 ```
 
 ## Tech Stack

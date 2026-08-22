@@ -9,8 +9,8 @@ This project is based on the [Single-Page CV](https://roadmap.sh/projects/single
 Open `index.html` in your browser.
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/roadmap-projects.git
-cd roadmap-projects/single-page-cv
+git clone https://github.com/Felzeth/roadmap-practice.git
+cd roadmap-practice/single-page-cv
 open index.html
 ```
 
