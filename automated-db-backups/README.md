@@ -2,7 +2,7 @@
 
 Set up automated MongoDB backups to Cloudflare R2 every 12 hours using GitHub Actions or cron jobs.
 
-Based on the [Automated DB Backups](https://roadmap.sh/projects/automated-db-backups) challenge from roadmap.sh.
+Based on the [Automated Backups](https://roadmap.sh/projects/automated-backups) challenge from roadmap.sh.
 
 ## Features
 
