@@ -16,6 +16,7 @@ Each project is a standalone challenge completed as part of my learning journey 
 | 6   | [Custom Dropdown](./custom-dropdown)             | [Custom Dropdown](https://roadmap.sh/projects/custom-dropdown)                   | ✅ Done |
 | 7   | [Theme Switcher](./theme-switcher)               | [Theme Switcher](https://roadmap.sh/projects/theme-switcher)                     | ✅ Done |
 | 8   | [Personal Portfolio](./personal-portfolio)       | [Personal Portfolio](https://roadmap.sh/projects/portfolio-website)              | ✅ Done |
+| 9   | [Changelog Component](./changelog-component)     | [Changelog Component](https://roadmap.sh/projects/changelog-component)          | ✅ Done |
 
 > New projects will be added as I work through the roadmap.
 

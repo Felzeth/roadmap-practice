@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.changelog-container {
+    background-color: white;
+    border: 1px solid #1a1a1a;
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.header p {
+    color: #888;
+    font-size: 1rem;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 200px;
+    margin-bottom: 50px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 200px;
+    top: 10px;
+    bottom: 10px;
+    width: 1px;
+    background-color: #1a1a1a;
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.date {
+    position: absolute;
+    left: -200px;
+    width: 160px;
+    text-align: right;
+    color: #888;
+    font-size: 1rem;
+    padding-top: 5px;
+}
+
+.dot {
+    position: absolute;
+    left: -6px;
+    width: 12px;
+    height: 12px;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    z-index: 1;
+    top: 8px;
+}
+
+.content {
+    margin-left: 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    line-height: 1.5;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.visit-btn {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.visit-btn:hover {
+    background-color: #333;
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 40px;
+    }
+    
+    .timeline::before {
+        left: 40px;
+    }
+    
+    .date {
+        position: relative;
+        left: 0;
+        width: auto;
+        text-align: left;
+        margin-bottom: 5px;
+        display: block;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+    }
+    
+    .dot {
+        left: -26px;
+        top: 5px;
+    }
+    
+    .content {
+        margin-left: 0;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+}
