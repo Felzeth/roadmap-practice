@@ -1,0 +1,99 @@
+name: Automated Database Backup
+
+on:
+  # Run every 12 hours
+  schedule:
+    - cron: '0 */12 * * *'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      backup_type:
+        description: 'Type of backup'
+        required: true
+        default: 'full'
+        type: choice
+        options:
+          - full
+          - quick
+
+  # Run on push to main (for testing)
+  push:
+    branches:
+      - main
+    paths:
+      - 'automated-db-backups/**'
+
+env:
+  MONGO_URI: ${{ secrets.MONGO_URI }}
+  MONGO_DB: ${{ secrets.MONGO_DB }}
+  R2_BUCKET: ${{ secrets.R2_BUCKET }}
+  R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  BACKUP_RETENTION_DAYS: ${{ secrets.BACKUP_RETENTION_DAYS || '30' }}
+
+jobs:
+  backup:
+    name: MongoDB Backup to R2
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install MongoDB tools
+        run: |
+          wget -qO - https://www.mongodb.org/static/pgp/server-7.0.asc | sudo apt-key add -
+          echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+          sudo apt-get update
+          sudo apt-get install -y mongodb-mongosh mongodb-org-tools
+          
+      - name: Configure AWS CLI for R2
+        run: |
+          pip install awscli
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set region auto
+          
+      - name: Make scripts executable
+        run: |
+          chmod +x automated-db-backups/backup.sh
+          
+      - name: Run backup
+        run: |
+          cd automated-db-backups
+          ./backup.sh
+          
+      - name: Backup status
+        if: success()
+        run: |
+          echo "✅ Backup completed successfully!"
+          echo "Timestamp: $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "❌ Backup failed!"
+          # Add your notification logic here (Slack, email, etc.)
+
+  # Optional: Verify backup integrity
+  verify:
+    name: Verify Backup
+    runs-on: ubuntu-latest
+    needs: backup
+    if: github.event_name == 'schedule'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install AWS CLI
+        run: pip install awscli
+
+      - name: List latest backups
+        run: |
+          aws s3 ls s3://${{ secrets.R2_BUCKET }}/backups/ \
+            --endpoint-url ${{ secrets.R2_ENDPOINT }} \
+            --human-readable \
+            | tail -5

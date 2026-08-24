@@ -19,6 +19,7 @@ Each project is a standalone challenge completed as part of my learning journey 
 | 9   | [Changelog Component](./changelog-component)     | [Changelog Component](https://roadmap.sh/projects/changelog-component)          | ✅ Done |
 | 10  | [Quiz App](./quiz-app)                           | [Quiz App](https://roadmap.sh/projects/quiz-app)                               | ✅ Done |
 | 11  | [Pomodoro Timer](./pomodoro-timer)               | [Pomodoro Timer](https://roadmap.sh/projects/pomodoro-timer)                   | ✅ Done |
+| 12  | [Automated DB Backups](./automated-db-backups)   | [Automated DB Backups](https://roadmap.sh/projects/automated-db-backups)       | ✅ Done |
 
 > New projects will be added as I work through the roadmap.
 
