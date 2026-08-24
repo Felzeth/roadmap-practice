@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app" id="app">
+        <!-- Header -->
+        <header class="header">
+            <h1>Pomodoro Timer</h1>
+            <p class="subtitle">Stay focused, take breaks, be productive.</p>
+        </header>
+
+        <!-- Session Tabs -->
+        <div class="session-tabs" role="tablist" aria-label="Session type">
+            <button 
+                class="tab active" 
+                role="tab" 
+                id="tab-work" 
+                aria-selected="true" 
+                aria-controls="timer-section"
+                data-session="work"
+            >
+                Work
+            </button>
+            <button 
+                class="tab" 
+                role="tab" 
+                id="tab-short" 
+                aria-selected="false" 
+                aria-controls="timer-section"
+                data-session="short"
+            >
+                Short Break
+            </button>
+            <button 
+                class="tab" 
+                role="tab" 
+                id="tab-long" 
+                aria-selected="false" 
+                aria-controls="timer-section"
+                data-session="long"
+            >
+                Long Break
+            </button>
+        </div>
+
+        <!-- Timer Section -->
+        <section class="timer-section" id="timer-section" role="tabpanel" aria-labelledby="tab-work">
+            <div class="timer-circle" id="timer-circle">
+                <svg class="timer-svg" viewBox="0 0 200 200">
+                    <circle class="timer-bg" cx="100" cy="100" r="90" />
+                    <circle 
+                        class="timer-progress" 
+                        id="timer-progress" 
+                        cx="100" 
+                        cy="100" 
+                        r="90" 
+                    />
+                </svg>
+                <div class="timer-display">
+                    <span class="timer-time" id="timer-time" aria-live="polite" aria-atomic="true">25:00</span>
+                    <span class="timer-label" id="timer-label">Work Session</span>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <button 
+                    class="btn btn-primary" 
+                    id="start-btn" 
+                    aria-label="Start timer"
+                >
+                    Start
+                </button>
+                <button 
+                    class="btn btn-secondary" 
+                    id="pause-btn" 
+                    aria-label="Pause timer" 
+                    disabled
+                >
+                    Pause
+                </button>
+                <button 
+                    class="btn btn-secondary" 
+                    id="reset-btn" 
+                    aria-label="Reset timer"
+                >
+                    Reset
+                </button>
+                <button 
+                    class="btn btn-icon" 
+                    id="skip-btn" 
+                    aria-label="Skip to next session"
+                    title="Skip to next session"
+                >
+                    ⏭
+                </button>
+            </div>
+        </section>
+
+        <!-- Session Tracker -->
+        <div class="session-tracker">
+            <div class="tracker-header">
+                <h2>Work Sessions</h2>
+                <span class="session-count" id="session-count">0 / 4</span>
+            </div>
+            <div class="session-dots" id="session-dots" aria-label="Completed work sessions">
+                <div class="dot" data-index="0"></div>
+                <div class="dot" data-index="1"></div>
+                <div class="dot" data-index="2"></div>
+                <div class="dot" data-index="3"></div>
+            </div>
+            <p class="tracker-hint">Complete 4 work sessions to earn a long break</p>
+        </div>
+
+        <!-- Settings Toggle -->
+        <button 
+            class="settings-toggle" 
+            id="settings-toggle" 
+            aria-expanded="false" 
+            aria-controls="settings-panel"
+        >
+            ⚙ Settings
+        </button>
+
+        <!-- Settings Panel -->
+        <div class="settings-panel" id="settings-panel" role="dialog" aria-label="Timer settings">
+            <h3>Configure Intervals</h3>
+            <div class="settings-grid">
+                <div class="setting-group">
+                    <label for="work-duration">Work Duration (minutes)</label>
+                    <input 
+                        type="number" 
+                        id="work-duration" 
+                        min="1" 
+                        max="90" 
+                        value="25" 
+                        aria-describedby="work-duration-hint"
+                    >
+                    <span class="hint" id="work-duration-hint">Default: 25 min</span>
+                </div>
+                <div class="setting-group">
+                    <label for="short-duration">Short Break (minutes)</label>
+                    <input 
+                        type="number" 
+                        id="short-duration" 
+                        min="1" 
+                        max="30" 
+                        value="5" 
+                        aria-describedby="short-duration-hint"
+                    >
+                    <span class="hint" id="short-duration-hint">Default: 5 min</span>
+                </div>
+                <div class="setting-group">
+                    <label for="long-duration">Long Break (minutes)</label>
+                    <input 
+                        type="number" 
+                        id="long-duration" 
+                        min="1" 
+                        max="60" 
+                        value="15" 
+                        aria-describedby="long-duration-hint"
+                    >
+                    <span class="hint" id="long-duration-hint">Default: 15 min</span>
+                </div>
+                <div class="setting-group">
+                    <label for="sessions-before-long">Sessions before long break</label>
+                    <input 
+                        type="number" 
+                        id="sessions-before-long" 
+                        min="1" 
+                        max="10" 
+                        value="4" 
+                        aria-describedby="sessions-before-long-hint"
+                    >
+                    <span class="hint" id="sessions-before-long-hint">Default: 4</span>
+                </div>
+            </div>
+            <div class="settings-actions">
+                <button class="btn btn-primary" id="save-settings">Save Settings</button>
+                <button class="btn btn-secondary" id="reset-settings">Reset to Default</button>
+            </div>
+        </div>
+
+        <!-- Sound Toggle -->
+        <div class="sound-control">
+            <label class="sound-label" for="sound-toggle">
+                <span id="sound-icon">🔔</span>
+                <input 
+                    type="checkbox" 
+                    id="sound-toggle" 
+                    checked 
+                    aria-label="Toggle notification sound"
+                >
+            </label>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
