@@ -1,0 +1,12 @@
+# GitHub User Activity CLI
+# No external dependencies required - uses only Python standard library
+
+# Python version requirement
+python_requires = >=3.7
+
+# This project intentionally uses only the standard library:
+# - json (built-in)
+# - sys (built-in)
+# - urllib.request (built-in)
+# - urllib.error (built-in)
+# - datetime (built-in)
