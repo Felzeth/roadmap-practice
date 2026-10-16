@@ -2,5 +2,14 @@
 # GitHub Activity CLI - Command line interface to fetch user activity
 # Usage: github-activity <username>
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-python3 "$SCRIPT_DIR/cli.py" "$@"
+# Invoke Python 3 directly to avoid any program-launcher dialogs.
+# python3 is resolved via PATH; if not available, fall back to python.
+if command -v python3 > /dev/null 2>&1; then
+    python3 "$(dirname "$0")/cli.py" "$@"
+elif command -v python > /dev/null 2>&1; then
+    python "$(dirname "$0")/cli.py" "$@"
+else
+    echo "Error: Python 3 is not installed or not found in PATH." >&2
+    echo "Please install Python 3 and ensure it is in your PATH." >&2
+    exit 127
+fi
